@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2011
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SysNutri.Api", "SysNutri.Api\SysNutri.Api.csproj", "{C23C08D0-75EC-4BC5-8AC5-8D8EA8105709}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{3F7FC1AA-B208-4579-AEE5-C0DBDEDA8A2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C23C08D0-75EC-4BC5-8AC5-8D8EA8105709}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C23C08D0-75EC-4BC5-8AC5-8D8EA8105709}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C23C08D0-75EC-4BC5-8AC5-8D8EA8105709}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C23C08D0-75EC-4BC5-8AC5-8D8EA8105709}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F7FC1AA-B208-4579-AEE5-C0DBDEDA8A2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F7FC1AA-B208-4579-AEE5-C0DBDEDA8A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F7FC1AA-B208-4579-AEE5-C0DBDEDA8A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F7FC1AA-B208-4579-AEE5-C0DBDEDA8A2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {778BD824-1CB6-42DE-9E03-5D6EC1E5993F}
+	EndGlobalSection
+EndGlobal
