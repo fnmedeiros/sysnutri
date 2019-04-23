@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SysNutri.Mvc.Models.Profissional>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Profissao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NroCarteira)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UsuarioId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profissao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NroCarteira)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UsuarioId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProfissionalId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProfissionalId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProfissionalId })
+        </td>
+    </tr>
+}
+
+</table>
