@@ -16,6 +16,7 @@ namespace WebApi.Models
 
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Profissional> Profissionais { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

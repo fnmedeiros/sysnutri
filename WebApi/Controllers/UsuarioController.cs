@@ -19,9 +19,18 @@ namespace WebApi.Controllers
         private SysNutriContext db = new SysNutriContext();
 
         // GET: api/Usuario
-        public IQueryable<Usuario> GetUsuarios()
+        //public IQueryable<Usuario> GetUsuarios()
+        //{
+        //    return db.Usuarios;
+        //}
+
+        [HttpGet]
+        [Route("")]
+        public IHttpActionResult GetUsuarios()
         {
-            return db.Usuarios;
+            List<Usuario> usuarios = db.Usuarios.ToList();
+
+            return Ok(usuarios);
         }
 
         // GET: api/Usuario/5

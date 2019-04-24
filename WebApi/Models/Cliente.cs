@@ -7,16 +7,14 @@ using System.Web;
 
 namespace WebApi.Models
 {
-    [Table("Profissional")]
-    public class Profissional
+    [Table("Cliente")]
+    public class Cliente
     {
         [Key]
-        public int ProfissionalId { get; set; }
+        public int ClienteId { get; set; }
         public int UsuarioId { get; set; }
-        public string Profissao { get; set; }
-        public string NroCarteira { get; set; }
+        public int ProfissionalId { get; set; }
+        public string Status { get; set; }
         public virtual Usuario Usuario { get; set; }
-        //public List<Cliente> Clientes { get; set; }
-        //public List<Consulta> Consultas { get; set; }
     }
 }
