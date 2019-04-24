@@ -16,5 +16,6 @@ namespace WebApi.Models
         public int ProfissionalId { get; set; }
         public string Status { get; set; }
         public virtual Usuario Usuario { get; set; }
+        public virtual Profissional Profissional { get; set; }
     }
 }

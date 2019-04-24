@@ -16,7 +16,6 @@ namespace WebApi.Models
         public string Profissao { get; set; }
         public string NroCarteira { get; set; }
         public virtual Usuario Usuario { get; set; }
-        //public List<Cliente> Clientes { get; set; }
-        //public List<Consulta> Consultas { get; set; }
+        public virtual ICollection<Cliente> Clientes { get; set; }
     }
 }

@@ -181,5 +181,39 @@ namespace WebApi.Controllers
                 return NotFound();
             }
         }
+
+        [HttpGet]
+        [Route("clientes/{id:int}")]
+        public IHttpActionResult GetClientes(int id)
+        {
+            if (ExisteProfissional(id))
+            {
+                Profissional profissional = db.Profissionais.Where(p => p.ProfissionalId == id).FirstOrDefault();
+                List<Cliente> clientes = profissional.Clientes.ToList();
+
+                List<ClienteDto> clienteDto = new List<ClienteDto>();
+                foreach (var item in clientes)
+                {
+                    clienteDto.Add(new ClienteDto()
+                    {
+                        ClienteId = item.ClienteId,
+                        ProfissionalId = item.ProfissionalId,
+                        UsuarioId = item.UsuarioId,
+                        Nome = item.Usuario.Nome,
+                        Sobrenome = item.Usuario.Sobrenome,
+                        Cpf = item.Usuario.Cpf,
+                        Email = item.Usuario.Email,
+                        Senha = item.Usuario.Senha,
+                        Status = item.Status
+                    });
+                }
+
+                return Ok(clienteDto);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }

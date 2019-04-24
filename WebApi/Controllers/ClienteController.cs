@@ -107,5 +107,76 @@ namespace WebApi.Controllers
 
             return Ok();
         }
+
+        [HttpPost]
+        [Route("login")]
+        public IHttpActionResult ClientelLogin(LoginDto login)
+        {
+            Cliente cliente = new Cliente();
+
+            HashCustom hashCustom = new HashCustom();
+
+            cliente = db.Clientes.Where(p => p.Usuario.Email == login.email).FirstOrDefault();
+            var senhaCrip = hashCustom.HashMd5(login.senha.Trim());
+            if (cliente.Usuario.Senha != "")
+            {
+                if (cliente.Usuario.Senha.Trim() == senhaCrip)
+                {
+                    return Ok();
+                }
+            }
+            return BadRequest("Email ou senha incorretos!");
+        }
+
+        [HttpPut]
+        [Route("{id:int}")]
+        public IHttpActionResult PutCliente(int id, [FromBody] ClienteDto dto)
+        {
+
+            if (ExisteCliente(id))
+            {
+                Cliente cliente = db.Clientes.Where(p => p.ClienteId == id).FirstOrDefault();
+                Usuario usuario = cliente.Usuario;
+
+                cliente.Status = dto.Status;
+
+                usuario.Nome = dto.Nome;
+                usuario.Sobrenome = dto.Sobrenome;
+                usuario.Email = dto.Email;
+                usuario.Senha = dto.Senha;
+                usuario.Cpf = dto.Cpf;
+
+                db.SaveChanges();
+
+                return Ok(dto);
+            }
+            else
+            {
+                return NotFound();
+            }
+
+        }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public IHttpActionResult DeleteCliente(int id)
+        {
+
+            if (ExisteCliente(id))
+            {
+                Cliente cliente = db.Clientes.Where(p => p.ClienteId == id).FirstOrDefault();
+                Usuario usuario = cliente.Usuario;
+
+                db.Clientes.Remove(cliente);
+                db.Usuarios.Remove(usuario);
+                db.SaveChanges();
+
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }
